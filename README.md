@@ -1,6 +1,6 @@
-<center>
+<p align="center">
     <img src="https://etib.tech/assets/logo.gif" alt="Etib Corp"/>
-</center>
+</p>
 
 # Libetib
 
