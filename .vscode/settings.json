@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "my.h": "c",
+        "typeinfo": "c"
+    }
+}

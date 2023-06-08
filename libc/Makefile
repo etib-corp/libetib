@@ -13,7 +13,6 @@ SRC = my_getnbr.c \
 	my_strdup.c \
 	my_str_to_word_array.c \
 	my_strlen.c \
-	mini_printf.c \
 	my_put_nbr.c \
 	my_putstr.c \
 	my_putchar.c \
