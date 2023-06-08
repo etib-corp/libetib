@@ -7,8 +7,6 @@
 
 NAME = libmy.a
 
-CFLAGS = -Wall -Werror -Wextra -W
-
 SRC = my_getnbr.c \
 	my_strcmp.c \
 	my_strcpy.c \
@@ -53,16 +51,30 @@ SRC_PRINTF = 	printf/flags_extra.c \
 				printf/my_getnbr.c \
 				printf/all_printf.c \
 
+SRC_PARSING_JSON = 		parsing_json/get_json.c \
+						parsing_json/json_array.c \
+						parsing_json/json_obj.c \
+						parsing_json/json_value.c \
+						parsing_json/json_pair.c \
+						parsing_json/json_bool_string_float.c \
+						parsing_json/parser_json.c \
+
 OBJ = $(SRC:.c=.o)
 
 OBJ_PRINTF = $(SRC_PRINTF:.c=.o)
 
+OBJ_PARSING_JSON = $(SRC_PARSING_JSON:.c=.o)
+
 CC = gcc
+
+CFLAGS = -Wall -Werror -Wextra -W  -I./parsing_json/ -I./printf/ -I./
+
+LDFLAGS = -I./parsing_json/
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(OBJ_PRINTF)
-	ar rc $(NAME) $(OBJ) $(OBJ_PRINTF)
+$(NAME): $(OBJ) $(OBJ_PRINTF) $(OBJ_PARSING_JSON)
+	ar rc $(NAME) $(OBJ) $(OBJ_PRINTF) $(OBJ_PARSING_JSON)
 	cp $(NAME) ../
 
 clean:
