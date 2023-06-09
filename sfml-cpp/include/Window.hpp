@@ -17,7 +17,6 @@ class Window {
         sf::RenderWindow window;
         Window();
         ~Window();
-        void createWindow(void);
         bool isOpen(void);
         void displayWindow(void);
         void clearWindow(void);

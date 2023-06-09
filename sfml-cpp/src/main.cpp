@@ -5,21 +5,20 @@
 ** main
 */
 
-#include "window.h"
-#include "entity.hpp"
+#include "Window.hpp"
+#include "Entity.hpp"
 
-int main()
+int main(void)
 {
-    Window window;
+    Window *window = new Window();
     Entity entity;
-    window.createWindow();
-    while (window.isOpen()) {
-        while (window.window.pollEvent(window.event)) {
-            if (window.event.type == sf::Event::Closed)
-                window.destroyWindow();
+    while (window->isOpen()) {
+        while (window->window.pollEvent(window->event)) {
+            if (window->event.type == sf::Event::Closed)
+                window->destroyWindow();
         }
-        window.clearWindow();
-        window.displayWindow();
+        window->clearWindow();
+        window->displayWindow();
     }
     return 0;
 }
