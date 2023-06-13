@@ -8,8 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/julithein/perso/etib/libetib/sfml-cpp/src/Entity.cpp" "CMakeFiles/first.dir/src/Entity.cpp.o" "gcc" "CMakeFiles/first.dir/src/Entity.cpp.o.d"
-  "/home/julithein/perso/etib/libetib/sfml-cpp/src/Window.cpp" "CMakeFiles/first.dir/src/Window.cpp.o" "gcc" "CMakeFiles/first.dir/src/Window.cpp.o.d"
+  "/home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Entity2d.cpp" "CMakeFiles/first.dir/src/2d/Entity2d.cpp.o" "gcc" "CMakeFiles/first.dir/src/2d/Entity2d.cpp.o.d"
+  "/home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Event2d.cpp" "CMakeFiles/first.dir/src/2d/Event2d.cpp.o" "gcc" "CMakeFiles/first.dir/src/2d/Event2d.cpp.o.d"
+  "/home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Window2d.cpp" "CMakeFiles/first.dir/src/2d/Window2d.cpp.o" "gcc" "CMakeFiles/first.dir/src/2d/Window2d.cpp.o.d"
   "/home/julithein/perso/etib/libetib/sfml-cpp/src/main.cpp" "CMakeFiles/first.dir/src/main.cpp.o" "gcc" "CMakeFiles/first.dir/src/main.cpp.o.d"
   )
 

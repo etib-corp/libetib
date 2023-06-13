@@ -10,13 +10,13 @@
 
 #include "sfml_include.hpp"
 
-class Entity {
+class Entity2d {
     protected:
         sf::Vector2f velocity;
         sf::Vector2f position;
     public:
-        Entity();
-        ~Entity();
+        Entity2d();
+        ~Entity2d();
 };
 
 #endif /* !ENTITY_HPP_ */

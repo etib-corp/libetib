@@ -5,20 +5,20 @@
 ** main
 */
 
-#include "Window.hpp"
-#include "Entity.hpp"
+#include "Window2d.hpp"
+#include "Entity2d.hpp"
 
 int main(void)
 {
-    Window *window = new Window();
-    Entity entity;
+    Window2d *window = new Window2d();
+    Entity2d entity;
     while (window->isOpen()) {
         while (window->window.pollEvent(window->event)) {
             if (window->event.type == sf::Event::Closed)
-                window->destroyWindow();
+                window->close();
         }
-        window->clearWindow();
-        window->displayWindow();
+        window->clear();
+        window->display();
     }
     return 0;
 }

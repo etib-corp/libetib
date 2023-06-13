@@ -69,38 +69,52 @@ include CMakeFiles/first.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/first.dir/flags.make
 
-CMakeFiles/first.dir/src/Entity.cpp.o: CMakeFiles/first.dir/flags.make
-CMakeFiles/first.dir/src/Entity.cpp.o: /home/julithein/perso/etib/libetib/sfml-cpp/src/Entity.cpp
-CMakeFiles/first.dir/src/Entity.cpp.o: CMakeFiles/first.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julithein/perso/etib/libetib/sfml-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/first.dir/src/Entity.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/first.dir/src/Entity.cpp.o -MF CMakeFiles/first.dir/src/Entity.cpp.o.d -o CMakeFiles/first.dir/src/Entity.cpp.o -c /home/julithein/perso/etib/libetib/sfml-cpp/src/Entity.cpp
+CMakeFiles/first.dir/src/2d/Entity2d.cpp.o: CMakeFiles/first.dir/flags.make
+CMakeFiles/first.dir/src/2d/Entity2d.cpp.o: /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Entity2d.cpp
+CMakeFiles/first.dir/src/2d/Entity2d.cpp.o: CMakeFiles/first.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julithein/perso/etib/libetib/sfml-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/first.dir/src/2d/Entity2d.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/first.dir/src/2d/Entity2d.cpp.o -MF CMakeFiles/first.dir/src/2d/Entity2d.cpp.o.d -o CMakeFiles/first.dir/src/2d/Entity2d.cpp.o -c /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Entity2d.cpp
 
-CMakeFiles/first.dir/src/Entity.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/first.dir/src/Entity.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julithein/perso/etib/libetib/sfml-cpp/src/Entity.cpp > CMakeFiles/first.dir/src/Entity.cpp.i
+CMakeFiles/first.dir/src/2d/Entity2d.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/first.dir/src/2d/Entity2d.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Entity2d.cpp > CMakeFiles/first.dir/src/2d/Entity2d.cpp.i
 
-CMakeFiles/first.dir/src/Entity.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/first.dir/src/Entity.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julithein/perso/etib/libetib/sfml-cpp/src/Entity.cpp -o CMakeFiles/first.dir/src/Entity.cpp.s
+CMakeFiles/first.dir/src/2d/Entity2d.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/first.dir/src/2d/Entity2d.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Entity2d.cpp -o CMakeFiles/first.dir/src/2d/Entity2d.cpp.s
 
-CMakeFiles/first.dir/src/Window.cpp.o: CMakeFiles/first.dir/flags.make
-CMakeFiles/first.dir/src/Window.cpp.o: /home/julithein/perso/etib/libetib/sfml-cpp/src/Window.cpp
-CMakeFiles/first.dir/src/Window.cpp.o: CMakeFiles/first.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julithein/perso/etib/libetib/sfml-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/first.dir/src/Window.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/first.dir/src/Window.cpp.o -MF CMakeFiles/first.dir/src/Window.cpp.o.d -o CMakeFiles/first.dir/src/Window.cpp.o -c /home/julithein/perso/etib/libetib/sfml-cpp/src/Window.cpp
+CMakeFiles/first.dir/src/2d/Event2d.cpp.o: CMakeFiles/first.dir/flags.make
+CMakeFiles/first.dir/src/2d/Event2d.cpp.o: /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Event2d.cpp
+CMakeFiles/first.dir/src/2d/Event2d.cpp.o: CMakeFiles/first.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julithein/perso/etib/libetib/sfml-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/first.dir/src/2d/Event2d.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/first.dir/src/2d/Event2d.cpp.o -MF CMakeFiles/first.dir/src/2d/Event2d.cpp.o.d -o CMakeFiles/first.dir/src/2d/Event2d.cpp.o -c /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Event2d.cpp
 
-CMakeFiles/first.dir/src/Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/first.dir/src/Window.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julithein/perso/etib/libetib/sfml-cpp/src/Window.cpp > CMakeFiles/first.dir/src/Window.cpp.i
+CMakeFiles/first.dir/src/2d/Event2d.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/first.dir/src/2d/Event2d.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Event2d.cpp > CMakeFiles/first.dir/src/2d/Event2d.cpp.i
 
-CMakeFiles/first.dir/src/Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/first.dir/src/Window.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julithein/perso/etib/libetib/sfml-cpp/src/Window.cpp -o CMakeFiles/first.dir/src/Window.cpp.s
+CMakeFiles/first.dir/src/2d/Event2d.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/first.dir/src/2d/Event2d.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Event2d.cpp -o CMakeFiles/first.dir/src/2d/Event2d.cpp.s
+
+CMakeFiles/first.dir/src/2d/Window2d.cpp.o: CMakeFiles/first.dir/flags.make
+CMakeFiles/first.dir/src/2d/Window2d.cpp.o: /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Window2d.cpp
+CMakeFiles/first.dir/src/2d/Window2d.cpp.o: CMakeFiles/first.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julithein/perso/etib/libetib/sfml-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/first.dir/src/2d/Window2d.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/first.dir/src/2d/Window2d.cpp.o -MF CMakeFiles/first.dir/src/2d/Window2d.cpp.o.d -o CMakeFiles/first.dir/src/2d/Window2d.cpp.o -c /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Window2d.cpp
+
+CMakeFiles/first.dir/src/2d/Window2d.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/first.dir/src/2d/Window2d.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Window2d.cpp > CMakeFiles/first.dir/src/2d/Window2d.cpp.i
+
+CMakeFiles/first.dir/src/2d/Window2d.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/first.dir/src/2d/Window2d.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julithein/perso/etib/libetib/sfml-cpp/src/2d/Window2d.cpp -o CMakeFiles/first.dir/src/2d/Window2d.cpp.s
 
 CMakeFiles/first.dir/src/main.cpp.o: CMakeFiles/first.dir/flags.make
 CMakeFiles/first.dir/src/main.cpp.o: /home/julithein/perso/etib/libetib/sfml-cpp/src/main.cpp
 CMakeFiles/first.dir/src/main.cpp.o: CMakeFiles/first.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julithein/perso/etib/libetib/sfml-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/first.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julithein/perso/etib/libetib/sfml-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/first.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/first.dir/src/main.cpp.o -MF CMakeFiles/first.dir/src/main.cpp.o.d -o CMakeFiles/first.dir/src/main.cpp.o -c /home/julithein/perso/etib/libetib/sfml-cpp/src/main.cpp
 
 CMakeFiles/first.dir/src/main.cpp.i: cmake_force
@@ -113,22 +127,24 @@ CMakeFiles/first.dir/src/main.cpp.s: cmake_force
 
 # Object files for target first
 first_OBJECTS = \
-"CMakeFiles/first.dir/src/Entity.cpp.o" \
-"CMakeFiles/first.dir/src/Window.cpp.o" \
+"CMakeFiles/first.dir/src/2d/Entity2d.cpp.o" \
+"CMakeFiles/first.dir/src/2d/Event2d.cpp.o" \
+"CMakeFiles/first.dir/src/2d/Window2d.cpp.o" \
 "CMakeFiles/first.dir/src/main.cpp.o"
 
 # External object files for target first
 first_EXTERNAL_OBJECTS =
 
-first: CMakeFiles/first.dir/src/Entity.cpp.o
-first: CMakeFiles/first.dir/src/Window.cpp.o
+first: CMakeFiles/first.dir/src/2d/Entity2d.cpp.o
+first: CMakeFiles/first.dir/src/2d/Event2d.cpp.o
+first: CMakeFiles/first.dir/src/2d/Window2d.cpp.o
 first: CMakeFiles/first.dir/src/main.cpp.o
 first: CMakeFiles/first.dir/build.make
 first: /usr/lib64/libsfml-graphics.so.2.5.1
 first: /usr/lib64/libsfml-window.so.2.5.1
 first: /usr/lib64/libsfml-system.so.2.5.1
 first: CMakeFiles/first.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/julithein/perso/etib/libetib/sfml-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable first"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/julithein/perso/etib/libetib/sfml-cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable first"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/first.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

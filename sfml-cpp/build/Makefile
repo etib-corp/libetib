@@ -129,53 +129,77 @@ first/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/build
 .PHONY : first/fast
 
-src/Entity.o: src/Entity.cpp.o
-.PHONY : src/Entity.o
+src/2d/Entity2d.o: src/2d/Entity2d.cpp.o
+.PHONY : src/2d/Entity2d.o
 
 # target to build an object file
-src/Entity.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/Entity.cpp.o
-.PHONY : src/Entity.cpp.o
+src/2d/Entity2d.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/2d/Entity2d.cpp.o
+.PHONY : src/2d/Entity2d.cpp.o
 
-src/Entity.i: src/Entity.cpp.i
-.PHONY : src/Entity.i
+src/2d/Entity2d.i: src/2d/Entity2d.cpp.i
+.PHONY : src/2d/Entity2d.i
 
 # target to preprocess a source file
-src/Entity.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/Entity.cpp.i
-.PHONY : src/Entity.cpp.i
+src/2d/Entity2d.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/2d/Entity2d.cpp.i
+.PHONY : src/2d/Entity2d.cpp.i
 
-src/Entity.s: src/Entity.cpp.s
-.PHONY : src/Entity.s
+src/2d/Entity2d.s: src/2d/Entity2d.cpp.s
+.PHONY : src/2d/Entity2d.s
 
 # target to generate assembly for a file
-src/Entity.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/Entity.cpp.s
-.PHONY : src/Entity.cpp.s
+src/2d/Entity2d.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/2d/Entity2d.cpp.s
+.PHONY : src/2d/Entity2d.cpp.s
 
-src/Window.o: src/Window.cpp.o
-.PHONY : src/Window.o
+src/2d/Event2d.o: src/2d/Event2d.cpp.o
+.PHONY : src/2d/Event2d.o
 
 # target to build an object file
-src/Window.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/Window.cpp.o
-.PHONY : src/Window.cpp.o
+src/2d/Event2d.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/2d/Event2d.cpp.o
+.PHONY : src/2d/Event2d.cpp.o
 
-src/Window.i: src/Window.cpp.i
-.PHONY : src/Window.i
+src/2d/Event2d.i: src/2d/Event2d.cpp.i
+.PHONY : src/2d/Event2d.i
 
 # target to preprocess a source file
-src/Window.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/Window.cpp.i
-.PHONY : src/Window.cpp.i
+src/2d/Event2d.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/2d/Event2d.cpp.i
+.PHONY : src/2d/Event2d.cpp.i
 
-src/Window.s: src/Window.cpp.s
-.PHONY : src/Window.s
+src/2d/Event2d.s: src/2d/Event2d.cpp.s
+.PHONY : src/2d/Event2d.s
 
 # target to generate assembly for a file
-src/Window.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/Window.cpp.s
-.PHONY : src/Window.cpp.s
+src/2d/Event2d.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/2d/Event2d.cpp.s
+.PHONY : src/2d/Event2d.cpp.s
+
+src/2d/Window2d.o: src/2d/Window2d.cpp.o
+.PHONY : src/2d/Window2d.o
+
+# target to build an object file
+src/2d/Window2d.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/2d/Window2d.cpp.o
+.PHONY : src/2d/Window2d.cpp.o
+
+src/2d/Window2d.i: src/2d/Window2d.cpp.i
+.PHONY : src/2d/Window2d.i
+
+# target to preprocess a source file
+src/2d/Window2d.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/2d/Window2d.cpp.i
+.PHONY : src/2d/Window2d.cpp.i
+
+src/2d/Window2d.s: src/2d/Window2d.cpp.s
+.PHONY : src/2d/Window2d.s
+
+# target to generate assembly for a file
+src/2d/Window2d.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/first.dir/build.make CMakeFiles/first.dir/src/2d/Window2d.cpp.s
+.PHONY : src/2d/Window2d.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -210,12 +234,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... first"
-	@echo "... src/Entity.o"
-	@echo "... src/Entity.i"
-	@echo "... src/Entity.s"
-	@echo "... src/Window.o"
-	@echo "... src/Window.i"
-	@echo "... src/Window.s"
+	@echo "... src/2d/Entity2d.o"
+	@echo "... src/2d/Entity2d.i"
+	@echo "... src/2d/Entity2d.s"
+	@echo "... src/2d/Event2d.o"
+	@echo "... src/2d/Event2d.i"
+	@echo "... src/2d/Event2d.s"
+	@echo "... src/2d/Window2d.o"
+	@echo "... src/2d/Window2d.i"
+	@echo "... src/2d/Window2d.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

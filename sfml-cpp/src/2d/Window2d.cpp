@@ -1,38 +1,38 @@
 /*
-** ETIB PROJECT, 2023
+** EPITECH PROJECT, 2023
 ** cpp
 ** File description:
 ** window
 */
 
 
-#include "Window.hpp"
+#include "Window2d.hpp"
 
-Window::Window()
+Window2d::Window2d()
 {
     this->window.create(sf::VideoMode(800, 600), "My window", sf::Style::Default);
 }
 
-Window::~Window()
+Window2d::~Window2d()
 {
 }
 
-void Window::displayWindow(void)
+void Window2d::display(void)
 {
     this->window.display();
 }
 
-void Window::destroyWindow(void)
+void Window2d::close(void)
 {
     this->window.close();
 }
 
-bool Window::isOpen(void)
+bool Window2d::isOpen(void)
 {
     return this->window.isOpen();
 }
 
-void Window::clearWindow(void)
+void Window2d::clear(void)
 {
     this->window.clear();
 }

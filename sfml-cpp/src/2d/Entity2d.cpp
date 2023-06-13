@@ -5,12 +5,12 @@
 ** entity
 */
 
-#include "Entity.hpp"
+#include "Entity2d.hpp"
 
-Entity::Entity()
+Entity2d::Entity2d()
 {
 }
 
-Entity::~Entity()
+Entity2d::~Entity2d()
 {
 }
