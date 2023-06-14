@@ -24,10 +24,15 @@ class Window2d {
         ~Window2d();
         bool isOpen(void);
         void display(void);
-        void clear(void);
+        void clear(sf::Color color = sf::Color::Black);
         void close(void);
-        
+        void manageEvent(...);
+        void setFramerateLimit(unsigned int limit);
+        bool addEvent(std::function<bool(sf::Event)> condition, std::function<void(va_list)> ptr = nullptr, std::string name = "");
+        bool removeEvent(std::string name);
+        bool removeAllEvents(void);
 };
+
 
 #endif /* !WINDOW_H_ */
 

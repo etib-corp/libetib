@@ -13,6 +13,11 @@
 #include <SFML/System.hpp>
 #include <SFML/Audio.hpp>
 #include <cmath>
+#include <iostream>
+#include <list>
+#include <stdarg.h>
+#include <functional>
+#define DEBUG 1
 
 
 #endif /* !SFML_INCLUDE_HPP_ */

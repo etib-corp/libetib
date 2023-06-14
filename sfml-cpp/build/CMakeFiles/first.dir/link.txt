@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wall -Wextra -Werror -g3 CMakeFiles/first.dir/src/2d/Entity2d.cpp.o CMakeFiles/first.dir/src/2d/Event2d.cpp.o CMakeFiles/first.dir/src/2d/Window2d.cpp.o CMakeFiles/first.dir/src/main.cpp.o -o first  /usr/lib64/libsfml-graphics.so.2.5.1 /usr/lib64/libsfml-window.so.2.5.1 /usr/lib64/libsfml-system.so.2.5.1 

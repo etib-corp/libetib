@@ -13,12 +13,12 @@
 #endif /* !WINDOW_H_ */
 
 #include "sfml_include.hpp"
-#include <list>
-#include <stdarg.h>
+
 
 typedef struct event_s {
-    sf::Event::EventType type;
-    void (*fptr)(va_list);
+    std::function<bool(sf::Event)> condition;
+    std::function<void(va_list)> fptr;
+    std::string name;
 } event_t;
 
 class Event2d {
@@ -27,10 +27,10 @@ class Event2d {
     public:
         Event2d();
         ~Event2d();
-        void addEvent(sf::Event::EventType type, void (*fptr)(va_list));
-        void removeEvent(sf::Event::EventType type);
-        void removeAllEvents(void);
-        void manageEvent(...);
+        bool addEvent(std::function<bool(sf::Event)> condition = nullptr , std::function<void(va_list)> fptr = nullptr, std::string name = "");
+        bool removeEvent(std::string name);
+        bool removeAllEvents(void);
+        void manageEvent(va_list ap);
 };
 
 #endif /* !EVENT2D_HPP_ */
