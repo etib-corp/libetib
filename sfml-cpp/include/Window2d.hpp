@@ -14,6 +14,7 @@
 #include "Event2d.hpp"
 #endif /* !EVENT2D_HPP_ */
 
+
 class Window2d {
     private:
     public:

@@ -4,8 +4,6 @@
 ** File description:
 ** window
 */
-
-
 #include "Window2d.hpp"
 
 Window2d::Window2d()

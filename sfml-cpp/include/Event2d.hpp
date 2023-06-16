@@ -14,16 +14,16 @@
 
 #include "sfml_include.hpp"
 
-
-typedef struct event_s {
-    std::function<bool(sf::Event)> condition;
+template<typename... T>
+struct event_s {
+    std::function<bool(sf::Event, T...)> condition;
     std::function<void(va_list)> fptr;
     std::string name;
-} event_t;
+};
 
 class Event2d {
     private:
-        std::list<event_t> events;
+        std::list<event_s<int>> events;
     public:
         Event2d();
         ~Event2d();
