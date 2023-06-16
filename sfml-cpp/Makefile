@@ -16,6 +16,9 @@ lib:
 	mkdir -p build
 	cd build && cmake .. && make
 
+debug: lib
+	g++ -o $(NAME) $(SRC) $(CXXFLAGS) -g3 -ggdb
+
 fclean:
 	rm -fr build
 	rm -fr $(NAME)

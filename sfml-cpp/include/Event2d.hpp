@@ -8,29 +8,34 @@
 #ifndef EVENT2D_HPP_
 #define EVENT2D_HPP_
 
-#ifndef WINDOW_H_
-#include "Window2d.hpp"
-#endif /* !WINDOW_H_ */
+#ifndef  EVENTCONDITION2D_HPP_
+#include "Event2dCondition.hpp"
+#endif /* !EVENTCONDITION2D_HPP_ */
 
 #include "sfml_include.hpp"
 
-template<typename... T>
-struct event_s {
-    std::function<bool(sf::Event, T...)> condition;
-    std::function<void(va_list)> fptr;
-    std::string name;
-};
-
 class Event2d {
     private:
-        std::list<event_s<int>> events;
+    std::map<sf::Event::EventType, std::function<void(void)>> EventType;
+    std::map<sf::Keyboard::Key, std::function<void(void)>> Keymap;
+    std::map<sf::Mouse::Button, std::function<void(void)>> Mousemap;
+    std::map<sf::Joystick::Axis, std::function<void(void)>> JoystickAxis;
+    std::map<unsigned int, std::function<void(void)>> JoystickButton;
+
     public:
-        Event2d();
-        ~Event2d();
-        bool addEvent(std::function<bool(sf::Event)> condition = nullptr , std::function<void(va_list)> fptr = nullptr, std::string name = "");
-        bool removeEvent(std::string name);
-        bool removeAllEvents(void);
-        void manageEvent(va_list ap);
+    Event2d();
+    ~Event2d();
+    void addEvent(sf::Event::EventType type, std::function<void(void)> func);
+    void addKey(sf::Keyboard::Key key, std::function<void(void)> func);
+    void addMouse(sf::Mouse::Button button, std::function<void(void)> func);
+    void addJoystickAxis(sf::Joystick::Axis axis, std::function<void(void)> func);
+    void addJoystickButton(unsigned int, std::function<void(void)> func);
+    void destroyEvent(sf::Event::EventType type);
+    void destroyKey(sf::Keyboard::Key key);
+    void destroyMouse(sf::Mouse::Button button);
+    void destroyJoystickAxis(sf::Joystick::Axis axis);
+    void destroyJoystickButton(unsigned int button);
+    void manageEvent(sf::Event);
 };
 
 #endif /* !EVENT2D_HPP_ */

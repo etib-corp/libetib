@@ -4,19 +4,33 @@
 ** File description:
 ** main
 */
-
+#include "Event2d.hpp"
 #include "Window2d.hpp"
 #include "Entity2d.hpp"
-#include "Event2dCondition.hpp"
+
+void addAllEvent(Window2d *&window)
+{
+    window->addEvent(sf::Event::Closed, [&window]() {
+        window->close();
+    });
+    window->addKey(sf::Keyboard::Escape, [&window]() {
+        window->close();
+    });
+    window->addMouse(sf::Mouse::Left, [&window]() {
+        window->close();
+    });
+    window->addKey(sf::Keyboard::Up, [&window]() {
+        std::cout << "Up" << std::endl;
+    });
+}
 
 int main(void)
 {
-    Window2d *window = new Window2d();
-    Entity2d entity;
-    std::function<void(va_list)> fptr = std::bind(&Window2d::close, window);
-    window->addEvent(isWindowClosed, fptr, "close");
+    std::shared_ptr<Window2d> window = std::make_shared<Window2d>();
+    auto PTR = window.get();
+    addAllEvent(PTR);
     while (window->isOpen()) {
-        window->manageEvent(window);
+        window->manageEvent();
         window->clear(sf::Color::Red);
         window->display();
     }

@@ -4,60 +4,89 @@
 ** File description:
 ** Event2d
 */
-#include "Window2d.hpp"
+#include "Event2d.hpp"
+#include "sfml_include.hpp"
 
 Event2d::Event2d()
 {
-    this->events = std::list<event_t>();
 }
 
 Event2d::~Event2d()
 {
 }
 
-bool Event2d::addEvent(std::function<bool(sf::Event)> condition, std::function<void(va_list)> ptr, std::string name)
+void Event2d::addEvent(sf::Event::EventType type, std::function<void(void)> func)
 {
-    event_t event = {condition, ptr, name};
-    this->events.push_back(event);
-    return true;
+    this->EventType[type] = func;
 }
 
-bool Event2d::removeEvent(std::string name)
+void Event2d::addKey(sf::Keyboard::Key key, std::function<void(void)> func)
 {
-    for (auto it = this->events.begin(); it != this->events.end(); it++) {
-        if (it->name == name) {
-            this->events.erase(it);
-            return true;
+    this->Keymap[key] = func;
+}
+
+void Event2d::addMouse(sf::Mouse::Button button, std::function<void(void)> func)
+{
+    this->Mousemap[button] = func;
+}
+
+void Event2d::addJoystickAxis(sf::Joystick::Axis axis, std::function<void(void)> func)
+{
+    this->JoystickAxis[axis] = func;
+}
+
+void Event2d::addJoystickButton(unsigned int button, std::function<void(void)> func)
+{
+    this->JoystickButton[button] = func;
+}
+
+void Event2d::destroyEvent(sf::Event::EventType type)
+{
+    this->EventType.erase(type);
+}
+
+void Event2d::destroyKey(sf::Keyboard::Key key)
+{
+    this->Keymap.erase(key);
+}
+
+void Event2d::destroyMouse(sf::Mouse::Button button)
+{
+    this->Mousemap.erase(button);
+}
+
+void Event2d::destroyJoystickAxis(sf::Joystick::Axis axis)
+{
+    this->JoystickAxis.erase(axis);
+}
+
+void Event2d::destroyJoystickButton(unsigned int button)
+{
+    this->JoystickButton.erase(button);
+}
+
+void Event2d::manageEvent(sf::Event event)
+{
+    for (auto it = this->EventType.begin(); it != this->EventType.end(); it++) {
+        if (event.type == sf::Event::KeyPressed && this->Keymap.find(event.key.code) != this->Keymap.end()) {
+            std::cout << "key pressed" << std::endl;
+            return this->Keymap[event.key.code]();
         }
-    }
-    return false;
-}
-
-bool Event2d::removeAllEvents(void)
-{
-    this->events.clear();
-    return true;
-}
-
-void Event2d::manageEvent(va_list ap)
-/* first va_list arg has to be Window2d **/
-{
-    va_list tmp;
-    va_copy(tmp, ap);
-    bool end = false;
-    Window2d *window = va_arg(tmp, Window2d *);
-    while (window->window.pollEvent(window->event)) {
-        for (auto it = this->events.begin(); (end = (it != this->events.end())); it++) {
-            if (it->condition(window->event)) {
-                va_copy(tmp, ap);
-                it->fptr(tmp);
-                break;
-            }
-        #ifdef DEBUG
-        if (end) {
-            std::cout << "Event " << 0 << " not found" << std::endl;
+        if (event.type == sf::Event::MouseButtonPressed && this->Mousemap.find(event.mouseButton.button) != this->Mousemap.end()) {
+            std::cout << "mouse pressed" << std::endl;
+            return this->Mousemap[event.mouseButton.button]();
         }
-        #endif /* DEBUG */
+        if (event.type == sf::Event::JoystickButtonPressed && this->JoystickButton.find(event.joystickButton.button) != this->JoystickButton.end()) {
+            std::cout << "joystick pressed" << std::endl;
+            return this->JoystickButton[event.joystickButton.button]();
+        }
+        if (event.type == sf::Event::JoystickMoved && this->JoystickAxis.find(event.joystickMove.axis) != this->JoystickAxis.end()) {
+            std::cout << "joystick moved" << std::endl;
+            return this->JoystickAxis[event.joystickMove.axis]();
+        }
+        if (event.type == it->first) {
+            std::cout << "event: " << event.type << std::endl;
+            return it->second();
         }
     }
 }

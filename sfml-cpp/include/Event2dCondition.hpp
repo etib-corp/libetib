@@ -10,6 +10,8 @@
 
 #include "sfml_include.hpp"
 
-bool isWindowClosed(sf::Event event);
+bool isWindowClosed(sf::Event event, va_list *ap);
+bool isKeyPressed(sf::Event event, va_list *ap);
+
 
 #endif /* !EVENT2DCONDITION_HPP_ */

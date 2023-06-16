@@ -17,7 +17,9 @@
 #include <list>
 #include <stdarg.h>
 #include <functional>
-#define DEBUG 1
+#include <memory>
+
+//#define DEBUG 1
 
 
 #endif /* !SFML_INCLUDE_HPP_ */
