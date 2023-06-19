@@ -85,7 +85,6 @@ void Event2d::manageEvent(sf::Event event)
             return this->JoystickAxis[event.joystickMove.axis]();
         }
         if (event.type == it->first) {
-            std::cout << "event: " << event.type << std::endl;
             return it->second();
         }
     }
