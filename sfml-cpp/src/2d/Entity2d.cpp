@@ -14,3 +14,8 @@ Entity2d::Entity2d()
 Entity2d::~Entity2d()
 {
 }
+
+void Entity2d::move(sf::Vector2f velocity)
+{
+    this->position += velocity;
+}
