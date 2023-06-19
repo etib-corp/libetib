@@ -69,23 +69,18 @@ void Event2d::manageEvent(sf::Event event)
 {
     for (auto it = this->EventType.begin(); it != this->EventType.end(); it++) {
         if (event.type == sf::Event::KeyPressed && this->Keymap.find(event.key.code) != this->Keymap.end()) {
-            std::cout << "key pressed" << std::endl;
             return this->Keymap[event.key.code]();
         }
         if (event.type == sf::Event::MouseButtonPressed && this->Mousemap.find(event.mouseButton.button) != this->Mousemap.end()) {
-            std::cout << "mouse pressed" << std::endl;
             return this->Mousemap[event.mouseButton.button]();
         }
         if (event.type == sf::Event::JoystickButtonPressed && this->JoystickButton.find(event.joystickButton.button) != this->JoystickButton.end()) {
-            std::cout << "joystick pressed" << std::endl;
             return this->JoystickButton[event.joystickButton.button]();
         }
         if (event.type == sf::Event::JoystickMoved && this->JoystickAxis.find(event.joystickMove.axis) != this->JoystickAxis.end()) {
-            std::cout << "joystick moved" << std::endl;
             return this->JoystickAxis[event.joystickMove.axis]();
         }
         if (event.type == it->first) {
-            std::cout << "event: " << event.type << std::endl;
             return it->second();
         }
     }

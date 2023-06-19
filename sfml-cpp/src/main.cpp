@@ -4,9 +4,12 @@
 ** File description:
 ** main
 */
+
+/* DO NOT MOVE ALL INCLUDE INSIDE OF SFML_INCLUDE SINCE THIS MAIN ISN'T FOR RELEASE */
 #include "Event2d.hpp"
 #include "Window2d.hpp"
 #include "Entity2d.hpp"
+#include "JSONParser.hpp"
 
 void addAllEvent(Window2d *&window)
 {
@@ -16,22 +19,15 @@ void addAllEvent(Window2d *&window)
     window->addKey(sf::Keyboard::Escape, [&window]() {
         window->close();
     });
-    window->addMouse(sf::Mouse::Left, [&window]() {
-        window->close();
-    });
-    window->addKey(sf::Keyboard::Up, [&window]() {
-        std::cout << "Up" << std::endl;
-    });
 }
 
 int main(void)
 {
-    std::shared_ptr<Window2d> window = std::make_shared<Window2d>();
-    auto PTR = window.get();
-    addAllEvent(PTR);
+    Window2d *window = new Window2d();
+    addAllEvent(window);
     while (window->isOpen()) {
         window->manageEvent();
-        window->clear(sf::Color::Red);
+        window->clear(sf::Color::Black);
         window->display();
     }
     return 0;
