@@ -11,12 +11,19 @@
 #include <functional>
 #include <iostream>
 #include <list>
+#include <sstream>
+#include <string>
+#include <memory>
+#include <fstream>
+
+class 
 
 class JSONParser {
     public:
+        std::string buff;
         JSONParser(std::string path);
         ~JSONParser();
-
+        bool parse(void);
     protected:
     private:
 };

@@ -23,6 +23,7 @@ void addAllEvent(Window2d *&window)
 
 int main(void)
 {
+    JSONParser *parser = new JSONParser("./src/main.cpp");
     Window2d *window = new Window2d();
     addAllEvent(window);
     while (window->isOpen()) {
