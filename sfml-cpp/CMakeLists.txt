@@ -5,6 +5,11 @@ project(sfmlcpp)
 set(CMAKE_CXX_STANDARD 20)
 
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+find_package(PkgConfig REQUIRED)
+
+pkg_search_module(GLFW REQUIRED glfw3)
+
+include_directories(${GLFW_INCLUDE_DIRS})
 
 file(GLOB_RECURSE source_lib
     "src/2d/*.cpp"
@@ -22,10 +27,12 @@ target_link_libraries(sfmlcpp
     sfml-system
     sfml-audio
     sfml-network
+    GL
+    ${GLFW_LIBRARIES}
 )
 
 set_target_properties(sfmlcpp PROPERTIES
 	IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/libsfmlcpp.a
 )
 
-target_include_directories(sfmlcpp PUBLIC include)
+target_include_directories(sfmlcpp PUBLIC include/2d include/3d include/utilities)

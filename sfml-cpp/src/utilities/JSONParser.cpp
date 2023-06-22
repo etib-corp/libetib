@@ -26,5 +26,5 @@ JSONParser::~JSONParser()
 
 bool JSONParser::parse(void)
 {
-    
+    return true;
 }

@@ -7,7 +7,7 @@
 
 SRC		=	src/main.cpp
 NAME	=	main
-CXXFLAGS=	-I./include -L./build -lsfmlcpp -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network
+CXXFLAGS=	-I./include/2d -I./include/3d -I./include/utilities -L./build -lsfmlcpp -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network -lglfw -lGL
 
 all: lib
 	g++ -o $(NAME) $(SRC) $(CXXFLAGS)

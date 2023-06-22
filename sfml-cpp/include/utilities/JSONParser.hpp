@@ -16,8 +16,6 @@
 #include <memory>
 #include <fstream>
 
-class 
-
 class JSONParser {
     public:
         std::string buff;
