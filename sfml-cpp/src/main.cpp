@@ -60,8 +60,27 @@ void test_3d(void)
         window->deleteKey(GLFW_KEY_C);
         std::cout << window->isKeyManaged(GLFW_KEY_C) << std::endl;
     });
+    std::array<unsigned int, 2> axis0 = {0, 0};
+    std::array<unsigned int, 2> axis1 = {0, 1};
+    std::array<unsigned int, 2> axis2 = {1, 0};
+    std::array<unsigned int, 2> axis3 = {1, 1};
+    window->addJoystickButton(axis0, JUST_PRESSED, [&actualColor]() {
+        actualColor = ORANGE;
+    });
+    window->addJoystickButton(axis1, PRESSED, [&actualColor]() {
+        actualColor = BROWN;
+    });
+    window->addJoystickButton(axis2, JUST_PRESSED, [&actualColor]() {
+        actualColor = BROWN;
+    });
+    window->addJoystickButton(axis3, PRESSED, [&actualColor]() {
+        actualColor = ORANGE;
+    });
+    window->enableJoystick();
+    window->setJoystickMaxCount(2);
     while (window->isOpen()) {
         window->clear(actualColor);
+        //window->displayPressedJoystciButton();
         window->swapBuffers();
         window->pollEvents();
         window->manageEvent();

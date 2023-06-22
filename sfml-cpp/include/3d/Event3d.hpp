@@ -17,17 +17,18 @@ enum ButtonStatus {
 
 class Button {
     public:
-        Button(unsigned int button, enum ButtonStatus status, unsigned int axis);
+        Button(unsigned int button, enum ButtonStatus status, unsigned int joystickId);
         ~Button();
         void setPressed(bool pressed);
         void setStatus(enum ButtonStatus status);
         bool getPressed(void);
         enum ButtonStatus getStatus(void);
         unsigned int getButton(void);
+        unsigned int getJoystickId(void);
     protected:
     private:
         unsigned int button;
-        unsigned int axis;
+        unsigned int joystickId;
         enum ButtonStatus status;
         bool isPressed;
 };
@@ -63,6 +64,7 @@ class Event3d {
         void setJoystickMaxCount(unsigned int count);
         unsigned int getJoystickMaxCount(void);
         unsigned int getJoystickCount(void);
+        void displayPressedJoystciButton(void);
     protected:
     private:
         std::map<Button *, std::function<void(void)>> Keymap;

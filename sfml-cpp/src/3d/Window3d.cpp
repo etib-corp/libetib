@@ -208,6 +208,11 @@ unsigned int Window3d::getJoystickCount(void)
     return this->event->getJoystickCount();
 }
 
+void Window3d::displayPressedJoystciButton(void)
+{
+    this->event->displayPressedJoystciButton();
+}
+
 /* CURSOR VISIBILITY */
 
 void Window3d::setMouseCursorVisible(bool visible)

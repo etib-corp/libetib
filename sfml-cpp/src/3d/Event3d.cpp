@@ -7,10 +7,10 @@
 
 #include "Event3d.hpp"
 
-Button::Button(unsigned int button, enum ButtonStatus status, unsigned int axis = 0)
+Button::Button(unsigned int button, enum ButtonStatus status, unsigned int joystickId = 0)
 {
     this->button = button;
-    this->axis = axis;
+    this->joystickId = joystickId;
     this->status = status;
     this->isPressed = false;
 }
@@ -42,6 +42,11 @@ enum ButtonStatus Button::getStatus(void)
 unsigned int Button::getButton(void)
 {
     return this->button;
+}
+
+unsigned int Button::getJoystickId(void)
+{
+    return this->joystickId;
 }
 
 Event3d::Event3d()
@@ -121,11 +126,11 @@ void Event3d::manageEvent(GLFWwindow *window)
             count = 0;
             const unsigned char * button = glfwGetJoystickButtons(JoystickId, &count);
             for (auto it = this->JoystickButton.begin(); it != this->JoystickButton.end(); it++) {
-                if (it->first->getButton() < count && button[it->first->getButton()] == GLFW_PRESS && (!it->first->getPressed() || it->first->getStatus() == PRESSED)) {
+                if (JoystickId == it->first->getJoystickId() && it->first->getButton() < count && button[it->first->getButton()] == GLFW_PRESS && (!it->first->getPressed() || it->first->getStatus() == PRESSED)) {
                     it->first->setPressed(true);
                     it->second();
                 }
-                if (button[it->first->getButton()] == GLFW_RELEASE)
+                if (JoystickId == it->first->getJoystickId() && button[it->first->getButton()] == GLFW_RELEASE)
                     it->first->setPressed(false);
             }
         }
@@ -273,4 +278,19 @@ unsigned int Event3d::getJoystickMaxCount(void)
 unsigned int Event3d::getJoystickCount(void)
 {
     return this->JoystickCount;
+}
+
+void Event3d::displayPressedJoystciButton(void)
+{
+    unsigned char * buttons = NULL;
+    int count = 0;
+    for (int joystickId = 0; joystickId < this->JoystickMaxCount; joystickId++) {
+        buttons = (unsigned char *)glfwGetJoystickButtons(joystickId, &count);
+        if (buttons == NULL)
+            continue;
+        for (int button = 0; button < count; button++) {
+            if (buttons[button] == GLFW_PRESS)
+                std::cout << "Joystick " << joystickId << " button " << button << " pressed" << std::endl;
+        }
+    }
 }

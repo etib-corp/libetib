@@ -51,6 +51,7 @@ class Window3d {
         void setJoystickMaxCount(unsigned int count);
         unsigned int getJoystickMaxCount(void);
         unsigned int getJoystickCount(void);
+        void displayPressedJoystciButton(void);
 
         void setMouseCursorVisible(bool visible);
         bool getMouseCursorVisible(void);
