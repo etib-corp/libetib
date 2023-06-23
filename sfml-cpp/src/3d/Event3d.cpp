@@ -61,6 +61,10 @@ Event3d::Event3d()
 
 Event3d::~Event3d(void)
 {
+    this->Keymap.clear();
+    this->Mousemap.clear();
+    this->JoystickAxis.clear();
+    this->JoystickButton.clear();
 }
 
 void Event3d::addKey(unsigned int key, enum ButtonStatus status,std::function<void(void)> func)
@@ -187,11 +191,12 @@ void Event3d::disableMouse(void)
     this->MouseStatus = false;
 }
 
-void Event3d::enableJoystick(void)
+bool Event3d::enableJoystick(void)
 {
     if (!glfwJoystickPresent(GLFW_JOYSTICK_1))
-        throw std::runtime_error("Joystick not found");
+        return false;
     this->JoystickStatus = true;
+    return true;
 }
 
 void Event3d::enableKeyboard(void)

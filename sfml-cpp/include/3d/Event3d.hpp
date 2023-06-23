@@ -49,7 +49,7 @@ class Event3d {
         void disableJoystick(void);
         void disableKeyboard(void);
         void disableMouse(void);
-        void enableJoystick(void);
+        bool enableJoystick(void);
         void enableKeyboard(void);
         void enableMouse(void);
         bool isKeyManaged(unsigned int key);

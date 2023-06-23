@@ -41,7 +41,7 @@ void test_3d(void)
 {
     Window3d *window = new Window3d(800, 600, "Hello World");
     int ind = 0;
-    glm::vec4 colors[8] = {RED, GREEN, BLUE, YELLOW, CYAN, MAGENTA, WHITE, BLACK};
+    glm::vec4 colors[8] = {YELLOW, GREEN, BLUE, RED, CYAN, MAGENTA, WHITE, BLACK};
     glm::vec4 actualColor = colors[0];
     window->addKey(GLFW_KEY_ESCAPE, JUST_PRESSED, [&window]() {
         window->close();
@@ -60,31 +60,32 @@ void test_3d(void)
         window->deleteKey(GLFW_KEY_C);
         std::cout << window->isKeyManaged(GLFW_KEY_C) << std::endl;
     });
-    std::array<unsigned int, 2> axis0 = {0, 0};
-    std::array<unsigned int, 2> axis1 = {0, 1};
-    std::array<unsigned int, 2> axis2 = {1, 0};
-    std::array<unsigned int, 2> axis3 = {1, 1};
+    std::array<unsigned int, 2> axis0 = {0, GLFW_JOYSTICK_1};
+    std::array<unsigned int, 2> axis1 = {0, GLFW_JOYSTICK_2};
+    std::array<unsigned int, 2> axis2 = {1, GLFW_JOYSTICK_1};
+    std::array<unsigned int, 2> axis3 = {1, GLFW_JOYSTICK_2};
     window->addJoystickButton(axis0, JUST_PRESSED, [&actualColor]() {
         actualColor = ORANGE;
     });
-    window->addJoystickButton(axis1, PRESSED, [&actualColor]() {
-        actualColor = BROWN;
+    window->addJoystickButton(axis1, JUST_PRESSED, [&actualColor]() {
+        actualColor = BLUE;
     });
     window->addJoystickButton(axis2, JUST_PRESSED, [&actualColor]() {
-        actualColor = BROWN;
+        actualColor = RED;
     });
-    window->addJoystickButton(axis3, PRESSED, [&actualColor]() {
-        actualColor = ORANGE;
+    window->addJoystickButton(axis3, JUST_PRESSED, [&actualColor]() {
+        actualColor = GREEN;
     });
     window->enableJoystick();
     window->setJoystickMaxCount(2);
     while (window->isOpen()) {
         window->clear(actualColor);
-        //window->displayPressedJoystciButton();
+        window->displayPressedJoystciButton();
         window->swapBuffers();
         window->pollEvents();
         window->manageEvent();
     }
+    delete window;
 }
 
 int main(void)

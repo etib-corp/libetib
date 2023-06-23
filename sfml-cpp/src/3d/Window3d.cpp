@@ -33,6 +33,9 @@ Window3d::Window3d(unsigned int width, unsigned int height, std::string title, G
 
 Window3d::~Window3d()
 {
+    delete this->event;
+    glfwDestroyWindow(this->window);
+    glfwTerminate();
 }
 
 void Window3d::clear(glm::vec4 color)
@@ -135,7 +138,15 @@ void Window3d::disableMouse(void)
 
 void Window3d::enableJoystick(void)
 {
-    this->event->enableJoystick();
+    try {
+        if (!this->event->enableJoystick()) {
+            throw std::runtime_error("Failed to enable joystick");
+        }
+    } catch(...) {
+        std::cout << "Please connect a joystick before enable it" << std::endl;
+        delete this;
+        exit(84);
+    }
 }
 
 void Window3d::enableKeyboard(void)
