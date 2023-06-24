@@ -29,6 +29,7 @@ target_link_libraries(sfmlcpp
     sfml-network
     GL
     ${GLFW_LIBRARIES}
+    freetype
 )
 
 set_target_properties(sfmlcpp PROPERTIES

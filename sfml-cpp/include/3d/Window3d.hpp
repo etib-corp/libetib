@@ -7,6 +7,8 @@
 
 #include "opengl_include.hpp"
 #include "Event3d.hpp"
+#include "Clock3d.hpp"
+#include "Shader.hpp"
 
 #ifndef WINDOW3D_HPP_
 #define WINDOW3D_HPP_
@@ -55,11 +57,28 @@ class Window3d {
 
         void setMouseCursorVisible(bool visible);
         bool getMouseCursorVisible(void);
+
+        void setFramerateLimit(unsigned int limit);
+        unsigned int getFramerateLimit(void);
+        unsigned int getFramerate(void);
+        void updateFramerate(void);
+        double getElapsedTime(void);
+        double getDeltaTime(void);
+        void restartClock(void);
+
+        void setShader(Shader *shader);
+        Shader *getShader(void);
     protected:
     private:
         GLFWwindow *window;
+        GLFWmonitor *monitor;
+        const GLFWvidmode *mode;
         Event3d *event;
+        Clock3d *clock;
+        Shader *shader;
         bool isMouseCursorVisible;
+        unsigned int framerateLimit;
+        unsigned int framerate;
 };
 
 #endif /* !WINDOW3D_HPP_ */

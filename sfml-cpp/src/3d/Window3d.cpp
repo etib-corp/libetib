@@ -6,6 +6,8 @@
 */
 
 #include "Window3d.hpp"
+#include "Clock3d.hpp"
+#include "Shader.hpp"
 
 Window3d::Window3d(unsigned int width, unsigned int height, std::string title, GLFWmonitor *monitor, GLFWwindow *share)
 {
@@ -25,15 +27,29 @@ Window3d::Window3d(unsigned int width, unsigned int height, std::string title, G
         throw std::runtime_error("Failed to create window");
 
     glfwMakeContextCurrent(this->window);
+    glfwSetFramebufferSizeCallback(this->window, [](GLFWwindow *window, int width, int height) {
+        glViewport(0, 0, width, height);
+        std::cout << "Window resized to " << width << "x" << height << std::endl;
+    });
     glfwSetInputMode(this->window, GLFW_STICKY_KEYS, GL_TRUE);
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
+    glEnable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    this->monitor = glfwGetPrimaryMonitor();
+    this->mode = glfwGetVideoMode(this->monitor);
+    this->isMouseCursorVisible = true;
     this->event = new Event3d();
+    this->clock = new Clock3d();
+    this->framerate = 0;
+    this->framerateLimit = this->mode->refreshRate;
 }
 
 Window3d::~Window3d()
 {
     delete this->event;
+    delete this->clock;
     glfwDestroyWindow(this->window);
     glfwTerminate();
 }
@@ -237,4 +253,57 @@ void Window3d::setMouseCursorVisible(bool visible)
 bool Window3d::getMouseCursorVisible(void)
 {
     return this->isMouseCursorVisible;
+}
+
+/* FRAMERATE */
+
+void Window3d::setFramerateLimit(unsigned int limit)
+{
+    if (limit == 0)
+        glfwSwapInterval(0);
+    else
+        glfwSwapInterval(this->framerateLimit / limit);
+}
+
+unsigned int Window3d::getFramerateLimit(void)
+{
+    return this->framerateLimit;
+}
+
+unsigned int Window3d::getFramerate(void)
+{
+    return this->framerate;
+}
+
+void Window3d::updateFramerate(void)
+{
+    this->clock->update();
+    this->framerate = 1 / this->clock->getElapsedTime();
+    if (this->clock->getElapsedTime() >= 1)
+        this->clock->restart();
+}
+
+double Window3d::getElapsedTime(void)
+{
+    return this->clock->getElapsedTime();
+}
+
+double Window3d::getDeltaTime(void)
+{
+    return this->clock->getDeltaTime();
+}
+
+void Window3d::restartClock(void)
+{
+    this->clock->restart();
+}
+
+void Window3d::setShader(Shader *shader)
+{
+    this->shader = shader;
+}
+
+Shader *Window3d::getShader(void)
+{
+    return this->shader;
 }

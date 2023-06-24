@@ -14,6 +14,7 @@
 
 /* 3D INCLUDE */
 #include "Window3d.hpp"
+#include "Text3d.hpp"
 
 void addAllEvent(Window2d *&window)
 {
@@ -67,7 +68,7 @@ void test_3d(void)
     window->addJoystickButton(axis0, JUST_PRESSED, [&actualColor]() {
         actualColor = ORANGE;
     });
-    window->addJoystickButton(axis1, JUST_PRESSED, [&actualColor]() {
+    window->addJoystickButton(axis1, PRESSED, [&actualColor]() {
         actualColor = BLUE;
     });
     window->addJoystickButton(axis2, JUST_PRESSED, [&actualColor]() {
@@ -76,11 +77,17 @@ void test_3d(void)
     window->addJoystickButton(axis3, JUST_PRESSED, [&actualColor]() {
         actualColor = GREEN;
     });
-    window->enableJoystick();
-    window->setJoystickMaxCount(2);
+    //window->enableJoystick();
+    //window->setJoystickMaxCount(2);
+    //window->setFramerateLimit(60);
+    Text * text = new Text("./assets/font/arial.ttf", 48, 800, 600);
+    Shader * shader = new Shader("./assets/shader/TextVertexShader.vertexshader", "./assets/shader/TextFragmentShader.fragmentshader");
+    window->setShader(shader);
+    shader->use();
     while (window->isOpen()) {
         window->clear(actualColor);
-        window->displayPressedJoystciButton();
+        window->updateFramerate();
+        text->drawText(shader, "Hello World", 25.0, 25.0, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
         window->swapBuffers();
         window->pollEvents();
         window->manageEvent();
