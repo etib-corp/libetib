@@ -7,7 +7,7 @@
 
 #include "Shader.hpp"
 
-Shader::Shader(const char *vertexPath, const char *fragmentPath)
+Shader::Shader(const std::string vertexPath, const std::string fragmentPath)
 {
     std::string vertexCode;
     std::string fragmentCode;
@@ -37,8 +37,8 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath)
     const char *vShaderCode = vertexCode.c_str();
     const char *fShaderCode = fragmentCode.c_str();
 
-    unsigned int vertex;
-    unsigned int fragment;
+    std::uint32_t vertex;
+    std::uint32_t fragment;
     int success;
     char infoLog[512];
 
@@ -78,7 +78,6 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath)
                   << infoLog << std::endl;
         exit(84);
     }
-
     glDeleteShader(vertex);
     glDeleteShader(fragment);
 }
