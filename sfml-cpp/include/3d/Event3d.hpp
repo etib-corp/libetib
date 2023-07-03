@@ -67,10 +67,10 @@ class Event3d {
         void displayPressedJoystciButton(void);
     protected:
     private:
-        std::map<Button *, std::function<void(void)>> Keymap;
-        std::map<Button *, std::function<void(void)>> Mousemap;
+        std::map<std::shared_ptr<Button>, std::function<void(void)>> Keymap;
+        std::map<std::shared_ptr<Button>, std::function<void(void)>> Mousemap;
         std::map<std::array<unsigned int, 2>, std::function<void(float strengh)>> JoystickAxis;
-        std::map<Button *, std::function<void(void)>> JoystickButton;
+        std::map<std::shared_ptr<Button>, std::function<void(void)>> JoystickButton;
         bool MouseStatus;
         bool KeyboardStatus;
         unsigned int JoystickMaxCount;

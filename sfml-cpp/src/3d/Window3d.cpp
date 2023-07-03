@@ -40,16 +40,14 @@ Window3d::Window3d(unsigned int width, unsigned int height, std::string title, G
     this->monitor = glfwGetPrimaryMonitor();
     this->mode = glfwGetVideoMode(this->monitor);
     this->isMouseCursorVisible = true;
-    this->event = new Event3d();
-    this->clock = new Clock3d();
+    this->event = std::make_shared<Event3d>();
+    this->clock = std::make_shared<Clock3d>();
     this->framerate = 0;
     this->framerateLimit = this->mode->refreshRate;
 }
 
 Window3d::~Window3d()
 {
-    delete this->event;
-    delete this->clock;
     glfwDestroyWindow(this->window);
     glfwTerminate();
 }
@@ -65,7 +63,7 @@ void Window3d::close()
     glfwSetWindowShouldClose(this->window, 1);
 }
 
-Event3d *Window3d::getEvent()
+std::shared_ptr<Event3d> Window3d::getEvent()
 {
     return this->event;
 }

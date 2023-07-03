@@ -20,7 +20,7 @@ class Window3d {
         ~Window3d();
         void clear(glm::vec4 color);
         void close();
-        Event3d *getEvent();
+        std::shared_ptr<Event3d> getEvent();
         GLFWwindow *getWindow();
         bool isOpen();
         void pollEvents();
@@ -73,8 +73,8 @@ class Window3d {
         GLFWwindow *window;
         GLFWmonitor *monitor;
         const GLFWvidmode *mode;
-        Event3d *event;
-        Clock3d *clock;
+        std::shared_ptr<Event3d> event;
+        std::shared_ptr<Clock3d> clock;
         Shader *shader;
         bool isMouseCursorVisible;
         unsigned int framerateLimit;

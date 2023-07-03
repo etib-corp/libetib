@@ -69,13 +69,13 @@ Event3d::~Event3d(void)
 
 void Event3d::addKey(unsigned int key, enum ButtonStatus status,std::function<void(void)> func)
 {
-    Button *newKey = new Button(key, status);
+    auto newKey = std::make_shared<Button>(key, status);
     this->Keymap[newKey] = func;
 }
 
 void Event3d::addMouse(unsigned int button, enum ButtonStatus status, std::function<void(void)> func)
 {
-    Button *newMouse = new Button(button, status);
+    auto newMouse =  std::make_shared<Button>(button, status);
     this->Mousemap[newMouse] = func;
 }
 
@@ -86,7 +86,7 @@ void Event3d::addJoystickAxis(std::array<unsigned int, 2>& axis, std::function<v
 
 void Event3d::addJoystickButton(std::array<unsigned int, 2>& button, enum ButtonStatus status, std::function<void(void)> func)
 {
-    Button *newButton = new Button(std::get<0>(button), status, std::get<1>(button));
+    auto newButton =  std::make_shared<Button>(std::get<0>(button), status, std::get<1>(button));
     this->JoystickButton[newButton] = func;
 }
 
