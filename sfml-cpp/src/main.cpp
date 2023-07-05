@@ -61,10 +61,10 @@ void test_3d(void)
         window->deleteKey(GLFW_KEY_C);
         std::cout << window->isKeyManaged(GLFW_KEY_C) << std::endl;
     });
-    std::array<unsigned int, 2> axis0 = {0, GLFW_JOYSTICK_1};
-    std::array<unsigned int, 2> axis1 = {0, GLFW_JOYSTICK_2};
-    std::array<unsigned int, 2> axis2 = {1, GLFW_JOYSTICK_1};
-    std::array<unsigned int, 2> axis3 = {1, GLFW_JOYSTICK_2};
+    std::array<std::uint8_t, 2> axis0 = {0, GLFW_JOYSTICK_1};
+    std::array<std::uint8_t, 2> axis1 = {0, GLFW_JOYSTICK_2};
+    std::array<std::uint8_t, 2> axis2 = {1, GLFW_JOYSTICK_1};
+    std::array<std::uint8_t, 2> axis3 = {1, GLFW_JOYSTICK_2};
     window->addJoystickButton(axis0, JUST_PRESSED, [&actualColor]() {
         actualColor = ORANGE;
     });

@@ -7,7 +7,7 @@
 
 #include "Event3d.hpp"
 
-Button::Button(unsigned int button, enum ButtonStatus status, unsigned int joystickId = 0)
+Button::Button(std::uint8_t button, enum ButtonStatus status, std::uint8_t joystickId = 0)
 {
     this->button = button;
     this->joystickId = joystickId;
@@ -39,12 +39,12 @@ enum ButtonStatus Button::getStatus(void)
     return this->status;
 }
 
-unsigned int Button::getButton(void)
+std::uint8_t Button::getButton(void)
 {
     return this->button;
 }
 
-unsigned int Button::getJoystickId(void)
+std::uint8_t Button::getJoystickId(void)
 {
     return this->joystickId;
 }
@@ -67,24 +67,24 @@ Event3d::~Event3d(void)
     this->JoystickButton.clear();
 }
 
-void Event3d::addKey(unsigned int key, enum ButtonStatus status,std::function<void(void)> func)
+void Event3d::addKey(std::uint8_t key, enum ButtonStatus status,std::function<void(void)> func)
 {
     auto newKey = std::make_shared<Button>(key, status);
     this->Keymap[newKey] = func;
 }
 
-void Event3d::addMouse(unsigned int button, enum ButtonStatus status, std::function<void(void)> func)
+void Event3d::addMouse(std::uint8_t button, enum ButtonStatus status, std::function<void(void)> func)
 {
     auto newMouse =  std::make_shared<Button>(button, status);
     this->Mousemap[newMouse] = func;
 }
 
-void Event3d::addJoystickAxis(std::array<unsigned int, 2>& axis, std::function<void(float)> func)
+void Event3d::addJoystickAxis(std::array<std::uint8_t, 2>& axis, std::function<void(float)> func)
 {
     this->JoystickAxis[axis] = func;
 }
 
-void Event3d::addJoystickButton(std::array<unsigned int, 2>& button, enum ButtonStatus status, std::function<void(void)> func)
+void Event3d::addJoystickButton(std::array<std::uint8_t, 2>& button, enum ButtonStatus status, std::function<void(void)> func)
 {
     auto newButton =  std::make_shared<Button>(std::get<0>(button), status, std::get<1>(button));
     this->JoystickButton[newButton] = func;
@@ -141,7 +141,7 @@ void Event3d::manageEvent(GLFWwindow *window)
     }
 }
 
-void Event3d::deleteKey(unsigned int key)
+void Event3d::deleteKey(std::uint8_t key)
 {
     for (auto it = this->Keymap.begin(); it != this->Keymap.end(); it++) {
         if (it->first->getButton() == key) {
@@ -151,7 +151,7 @@ void Event3d::deleteKey(unsigned int key)
     }
 }
 
-void Event3d::deleteMouse(unsigned int button)
+void Event3d::deleteMouse(std::uint8_t button)
 {
     for (auto it = this->Mousemap.begin(); it != this->Mousemap.end(); it++) {
         if (it->first->getButton() == button) {
@@ -161,12 +161,12 @@ void Event3d::deleteMouse(unsigned int button)
     }
 }
 
-void Event3d::deleteJoystickAxis(std::array<unsigned int, 2>& axis)
+void Event3d::deleteJoystickAxis(std::array<std::uint8_t, 2>& axis)
 {
     this->JoystickAxis.erase(axis);
 }
 
-void Event3d::deleteJoystickButton(std::array<unsigned int, 2>& button)
+void Event3d::deleteJoystickButton(std::array<std::uint8_t, 2>& button)
 {
     for (auto it = this->JoystickButton.begin(); it != this->JoystickButton.end(); it++) {
         if (it->first->getButton() == std::get<0>(button) && it->first->getStatus() == std::get<1>(button)) {
@@ -224,7 +224,7 @@ bool Event3d::isMouseEnabled(void)
     return this->MouseStatus;
 }
 
-bool Event3d::isKeyManaged(unsigned int key)
+bool Event3d::isKeyManaged(std::uint8_t key)
 {
     for (auto it = this->Keymap.begin(); it != this->Keymap.end(); it++) {
         if (it->first->getButton() == key)
@@ -233,7 +233,7 @@ bool Event3d::isKeyManaged(unsigned int key)
     return false;
 }
 
-bool Event3d::isMouseManaged(unsigned int button)
+bool Event3d::isMouseManaged(std::uint8_t button)
 {
     for (auto it = this->Mousemap.begin(); it != this->Mousemap.end(); it++) {
         if (it->first->getButton() == button)
@@ -242,7 +242,7 @@ bool Event3d::isMouseManaged(unsigned int button)
     return false;
 }
 
-bool Event3d::isJoystickAxisManaged(std::array<unsigned int, 2>& axis)
+bool Event3d::isJoystickAxisManaged(std::array<std::uint8_t, 2>& axis)
 {
     for (auto it = this->JoystickAxis.begin(); it != this->JoystickAxis.end(); it++) {
         if (it->first[0] == std::get<0>(axis) && it->first[1] == std::get<1>(axis))
@@ -251,7 +251,7 @@ bool Event3d::isJoystickAxisManaged(std::array<unsigned int, 2>& axis)
     return false;
 }
 
-bool Event3d::isJoystickButtonManaged(std::array<unsigned int, 2>& button)
+bool Event3d::isJoystickButtonManaged(std::array<std::uint8_t, 2>& button)
 {
     for (auto it = this->JoystickButton.begin(); it != this->JoystickButton.end(); it++) {
         if (it->first->getButton() == std::get<0>(button) && it->first->getStatus() == std::get<1>(button))
@@ -260,7 +260,7 @@ bool Event3d::isJoystickButtonManaged(std::array<unsigned int, 2>& button)
     return false;
 }
 
-void Event3d::setJoystickAxisDeadZone(float deadZone)
+void Event3d::setJoystickAxisDeadZone(std::float_t deadZone)
 {
     this->JoystickDeadZone = deadZone;
 }
@@ -270,17 +270,17 @@ float Event3d::getJoystickAxisDeadZone(void)
     return this->JoystickDeadZone;
 }
 
-void Event3d::setJoystickMaxCount(unsigned int count)
+void Event3d::setJoystickMaxCount(std::uint8_t count)
 {
     this->JoystickMaxCount = count;
 }
 
-unsigned int Event3d::getJoystickMaxCount(void)
+std::uint8_t Event3d::getJoystickMaxCount(void)
 {
     return this->JoystickMaxCount;
 }
 
-unsigned int Event3d::getJoystickCount(void)
+std::uint8_t Event3d::getJoystickCount(void)
 {
     return this->JoystickCount;
 }

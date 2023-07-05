@@ -9,7 +9,7 @@
 #include "Clock3d.hpp"
 #include "Shader.hpp"
 
-Window3d::Window3d(unsigned int width, unsigned int height, std::string title, GLFWmonitor *monitor, GLFWwindow *share)
+Window3d::Window3d(std::uint32_t width, std::uint32_t height, std::string title, GLFWmonitor *monitor, GLFWwindow *share)
 {
     if (!glfwInit())
         throw std::runtime_error("Failed to init glfw");
@@ -27,7 +27,7 @@ Window3d::Window3d(unsigned int width, unsigned int height, std::string title, G
         throw std::runtime_error("Failed to create window");
 
     glfwMakeContextCurrent(this->window);
-    glfwSetFramebufferSizeCallback(this->window, [](GLFWwindow *window, int width, int height) {
+    glfwSetFramebufferSizeCallback(this->window, [](GLFWwindow *window, std::int32_t width, std::int32_t height) {
         glViewport(0, 0, width, height);
         std::cout << "Window resized to " << width << "x" << height << std::endl;
     });
@@ -90,22 +90,22 @@ void Window3d::swapBuffers()
 
 /* EVENT */
 
-void Window3d::addKey(unsigned int key, enum ButtonStatus status, std::function<void(void)> func)
+void Window3d::addKey(std::uint8_t key, enum ButtonStatus status, std::function<void(void)> func)
 {
     this->event->addKey(key, status, func);
 }
 
-void Window3d::addMouse(unsigned int button, enum ButtonStatus status, std::function<void(void)> func)
+void Window3d::addMouse(std::uint8_t button, enum ButtonStatus status, std::function<void(void)> func)
 {
     this->event->addMouse(button, status, func);
 }
 
-void Window3d::addJoystickAxis(std::array<unsigned int, 2>& axis, std::function<void(float)> func)
+void Window3d::addJoystickAxis(std::array<std::uint8_t, 2>& axis, std::function<void(std::float_t)> func)
 {
     this->event->addJoystickAxis(axis, func);
 }
 
-void Window3d::addJoystickButton(std::array<unsigned int, 2>& button, enum ButtonStatus status, std::function<void(void)> func)
+void Window3d::addJoystickButton(std::array<std::uint8_t, 2>& button, enum ButtonStatus status, std::function<void(void)> func)
 {
     this->event->addJoystickButton(button, status, func);
 }
@@ -115,22 +115,22 @@ void Window3d::manageEvent()
     this->event->manageEvent(this->window);
 }
 
-void Window3d::deleteKey(unsigned int key)
+void Window3d::deleteKey(std::uint8_t key)
 {
     this->event->deleteKey(key);
 }
 
-void Window3d::deleteMouse(unsigned int button)
+void Window3d::deleteMouse(std::uint8_t button)
 {
     this->event->deleteMouse(button);
 }
 
-void Window3d::deleteJoystickAxis(std::array<unsigned int, 2>& axis)
+void Window3d::deleteJoystickAxis(std::array<std::uint8_t, 2>& axis)
 {
     this->event->deleteJoystickAxis(axis);
 }
 
-void Window3d::deleteJoystickButton(std::array<unsigned int, 2> &button)
+void Window3d::deleteJoystickButton(std::array<std::uint8_t, 2> &button)
 {
     this->event->deleteJoystickButton(button);
 }
@@ -173,22 +173,22 @@ void Window3d::enableMouse(void)
     this->event->enableMouse();
 }
 
-bool Window3d::isKeyManaged(unsigned int key)
+bool Window3d::isKeyManaged(std::uint8_t key)
 {
     return this->event->isKeyManaged(key);
 }
 
-bool Window3d::isMouseManaged(unsigned int button)
+bool Window3d::isMouseManaged(std::uint8_t button)
 {
     return this->event->isMouseManaged(button);
 }
 
-bool Window3d::isJoystickAxisManaged(std::array<unsigned int, 2>& axis)
+bool Window3d::isJoystickAxisManaged(std::array<std::uint8_t, 2>& axis)
 {
     return this->event->isJoystickAxisManaged(axis);
 }
 
-bool Window3d::isJoystickButtonManaged(std::array<unsigned int, 2>& button)
+bool Window3d::isJoystickButtonManaged(std::array<std::uint8_t, 2>& button)
 {
     return this->event->isJoystickButtonManaged(button);
 }
@@ -208,27 +208,27 @@ bool Window3d::isMouseEnabled(void)
     return this->event->isMouseEnabled();
 }
 
-void Window3d::setJoystickAxisDeadZone(float deadZone)
+void Window3d::setJoystickAxisDeadZone(std::float_t deadZone)
 {
     this->event->setJoystickAxisDeadZone(deadZone);
 }
 
-float Window3d::getJoystickAxisDeadZone(void)
+std::float_t Window3d::getJoystickAxisDeadZone(void)
 {
     return this->event->getJoystickAxisDeadZone();
 }
 
-void Window3d::setJoystickMaxCount(unsigned int count)
+void Window3d::setJoystickMaxCount(std::uint8_t count)
 {
     this->event->setJoystickMaxCount(count);
 }
 
-unsigned int Window3d::getJoystickMaxCount(void)
+std::uint8_t Window3d::getJoystickMaxCount(void)
 {
     return this->event->getJoystickMaxCount();
 }
 
-unsigned int Window3d::getJoystickCount(void)
+std::uint8_t Window3d::getJoystickCount(void)
 {
     return this->event->getJoystickCount();
 }
@@ -255,7 +255,7 @@ bool Window3d::getMouseCursorVisible(void)
 
 /* FRAMERATE */
 
-void Window3d::setFramerateLimit(unsigned int limit)
+void Window3d::setFramerateLimit(std::uint32_t limit)
 {
     if (limit == 0)
         glfwSwapInterval(0);
@@ -263,12 +263,12 @@ void Window3d::setFramerateLimit(unsigned int limit)
         glfwSwapInterval(this->framerateLimit / limit);
 }
 
-unsigned int Window3d::getFramerateLimit(void)
+std::uint32_t Window3d::getFramerateLimit(void)
 {
     return this->framerateLimit;
 }
 
-unsigned int Window3d::getFramerate(void)
+std::uint32_t Window3d::getFramerate(void)
 {
     return this->framerate;
 }
@@ -281,12 +281,12 @@ void Window3d::updateFramerate(void)
         this->clock->restart();
 }
 
-double Window3d::getElapsedTime(void)
+std::double_t Window3d::getElapsedTime(void)
 {
     return this->clock->getElapsedTime();
 }
 
-double Window3d::getDeltaTime(void)
+std::double_t Window3d::getDeltaTime(void)
 {
     return this->clock->getDeltaTime();
 }
