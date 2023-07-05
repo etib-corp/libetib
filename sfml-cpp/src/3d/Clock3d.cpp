@@ -32,17 +32,17 @@ void Clock3d::update()
     this->time += this->deltaTime;
 }
 
-double Clock3d::getElapsedTime()
+std::double_t Clock3d::getElapsedTime()
 {
     return this->deltaTime;
 }
 
-double Clock3d::getElapsedTimeAsSeconds()
+std::double_t Clock3d::getElapsedTimeAsSeconds()
 {
     return this->time / 1000.0;
 }
 
-double Clock3d::getDeltaTime()
+std::double_t Clock3d::getDeltaTime()
 {
     return this->deltaTime;
 }

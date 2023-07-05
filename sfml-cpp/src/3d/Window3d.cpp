@@ -90,22 +90,22 @@ void Window3d::swapBuffers()
 
 /* EVENT */
 
-void Window3d::addKey(std::uint8_t key, enum ButtonStatus status, std::function<void(void)> func)
+void Window3d::addKey(std::uint32_t key, enum ButtonStatus status, std::function<void(void)> func)
 {
     this->event->addKey(key, status, func);
 }
 
-void Window3d::addMouse(std::uint8_t button, enum ButtonStatus status, std::function<void(void)> func)
+void Window3d::addMouse(std::uint32_t button, enum ButtonStatus status, std::function<void(void)> func)
 {
     this->event->addMouse(button, status, func);
 }
 
-void Window3d::addJoystickAxis(std::array<std::uint8_t, 2>& axis, std::function<void(std::float_t)> func)
+void Window3d::addJoystickAxis(std::array<std::uint32_t, 2>& axis, std::function<void(std::float_t)> func)
 {
     this->event->addJoystickAxis(axis, func);
 }
 
-void Window3d::addJoystickButton(std::array<std::uint8_t, 2>& button, enum ButtonStatus status, std::function<void(void)> func)
+void Window3d::addJoystickButton(std::array<std::uint32_t, 2>& button, enum ButtonStatus status, std::function<void(void)> func)
 {
     this->event->addJoystickButton(button, status, func);
 }
@@ -115,22 +115,22 @@ void Window3d::manageEvent()
     this->event->manageEvent(this->window);
 }
 
-void Window3d::deleteKey(std::uint8_t key)
+void Window3d::deleteKey(std::uint32_t key)
 {
     this->event->deleteKey(key);
 }
 
-void Window3d::deleteMouse(std::uint8_t button)
+void Window3d::deleteMouse(std::uint32_t button)
 {
     this->event->deleteMouse(button);
 }
 
-void Window3d::deleteJoystickAxis(std::array<std::uint8_t, 2>& axis)
+void Window3d::deleteJoystickAxis(std::array<std::uint32_t, 2>& axis)
 {
     this->event->deleteJoystickAxis(axis);
 }
 
-void Window3d::deleteJoystickButton(std::array<std::uint8_t, 2> &button)
+void Window3d::deleteJoystickButton(std::array<std::uint32_t, 2> &button)
 {
     this->event->deleteJoystickButton(button);
 }
@@ -173,22 +173,22 @@ void Window3d::enableMouse(void)
     this->event->enableMouse();
 }
 
-bool Window3d::isKeyManaged(std::uint8_t key)
+bool Window3d::isKeyManaged(std::uint32_t key)
 {
     return this->event->isKeyManaged(key);
 }
 
-bool Window3d::isMouseManaged(std::uint8_t button)
+bool Window3d::isMouseManaged(std::uint32_t button)
 {
     return this->event->isMouseManaged(button);
 }
 
-bool Window3d::isJoystickAxisManaged(std::array<std::uint8_t, 2>& axis)
+bool Window3d::isJoystickAxisManaged(std::array<std::uint32_t, 2>& axis)
 {
     return this->event->isJoystickAxisManaged(axis);
 }
 
-bool Window3d::isJoystickButtonManaged(std::array<std::uint8_t, 2>& button)
+bool Window3d::isJoystickButtonManaged(std::array<std::uint32_t, 2>& button)
 {
     return this->event->isJoystickButtonManaged(button);
 }

@@ -16,16 +16,16 @@ class Clock3d {
         ~Clock3d();
         void restart();
         void update();
-        double getElapsedTime();
-        double getElapsedTimeAsSeconds();
-        double getDeltaTime();
+        std::double_t getElapsedTime();
+        std::double_t getElapsedTimeAsSeconds();
+        std::double_t getDeltaTime();
 
     protected:
     private:
-    double lastTime;
-    double currentTime;
-    double deltaTime;
-    double time;
+    std::double_t lastTime;
+    std::double_t currentTime;
+    std::double_t deltaTime;
+    std::double_t time;
 };
 
 #endif /* !CLOCK3D_HPP_ */
