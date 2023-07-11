@@ -25,7 +25,7 @@ This is the Etib Corp's lib.
 
 ## Feedback
 
-If you have any feedback, please reach out to us at fake@fake.com
+If you have any feedback, please reach out to us at contact@etib.tech
 
 
 ## Related
